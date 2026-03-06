@@ -119,16 +119,23 @@
       flex-wrap: wrap;
     }
     .card {
-      width: 180px;
+      width: 220px;
       text-align: left;
     }
-    .card img {
-      width: 200px;
-      height: 200px;
+    .card .img-wrap {
+      width: 220px;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+    .card .img-wrap img {
+      width: 100%;
+      height: 100%;
       object-fit: contain;
       object-position: center;
-      margin-bottom: 20px;
-      display: block;
     }
     .card h3 {
       font-family: 'Cormorant Garamond', serif;
@@ -269,17 +276,17 @@
     <h2>The First Archive</h2>
     <div class="cards">
       <div class="card">
-        <img src="ring-kyoto.png" alt="The Kyoto Sapphire Ring"/>
+        <div class="img-wrap"><img src="ring-kyoto.png" alt="The Kyoto Sapphire Ring"/></div>
         <h3>The Kyoto Sapphire Ring</h3>
         <p>3.2 ct Pink Sapphire, 2.1 ct Diamond Accents</p>
       </div>
       <div class="card">
-        <img src="ring-paraiba.png" alt="Oval Paraiba Époque"/>
+        <div class="img-wrap"><img src="ring-paraiba.png" alt="Oval Paraiba Époque"/></div>
         <h3>Oval Paraiba Époque</h3>
         <p>6 ct Paraiba Tourmaline, 4.1 ct Diamond Accents</p>
       </div>
       <div class="card">
-        <img src="ring-cascade.png" alt="The Sapphire Cascade"/>
+        <div class="img-wrap"><img src="ring-cascade.png" alt="The Sapphire Cascade"/></div>
         <h3>The Sapphire Cascade</h3>
         <p>7 ct Blue Sapphire, 1.2 ct Diamond Accents</p>
       </div>
