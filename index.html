@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Maison Héritière</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #fff0f3;
+      color: #5a3e3e;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+    #hero video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    #hero .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.15);
+      z-index: 1;
+    }
+    #hero .hero-text {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+    }
+    #hero .hero-text .welcome {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.5em;
+      font-weight: 300;
+      margin-bottom: 14px;
+    }
+    #hero .hero-text h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(4rem, 11vw, 9rem);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+    #hero .hero-text .subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.55em;
+      font-weight: 300;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      position: relative;
+      background: url('assets/about-bg.jpg') center center / cover no-repeat;
+      padding: 120px 20px;
+      text-align: center;
+    }
+    #about .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(244, 198, 204, 0.3);
+    }
+    #about .about-content {
+      position: relative;
+      z-index: 2;
+    }
+    #about .logo {
+      width: 90px;
+      margin: 0 auto 40px;
+      display: block;
+    }
+    #about p {
+      max-width: 400px;
+      margin: 0 auto;
+      font-size: 0.78rem;
+      line-height: 2.2;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.03em;
+      text-align: center;
+    }
+
+    /* ── ARCHIVE ── */
+    #archive {
+      background: #f4c6cc;
+      padding: 110px 40px;
+      text-align: center;
+    }
+    #archive h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      font-weight: 300;
+      margin-bottom: 80px;
+      color: #5a3e3e;
+      letter-spacing: 0.05em;
+    }
+    .cards {
+      display: flex;
+      justify-content: center;
+      gap: 70px;
+      flex-wrap: wrap;
+    }
+    .card {
+      width: 180px;
+      text-align: left;
+    }
+    .card img {
+      width: 160px;
+      height: 160px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      display: block;
+    }
+    .card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      margin-bottom: 8px;
+      color: #5a3e3e;
+    }
+    .card p {
+      font-size: 0.62rem;
+      font-weight: 300;
+      color: #9a7a7a;
+      letter-spacing: 0.04em;
+      font-style: italic;
+    }
+
+    /* ── FOUNDING ── */
+    #founding {
+      background: #f4c6cc;
+      position: relative;
+      padding: 130px 20px;
+      text-align: center;
+      overflow: hidden;
+    }
+    #founding .orchid {
+      position: absolute;
+      bottom: 0;
+      width: clamp(160px, 24vw, 300px);
+      pointer-events: none;
+    }
+    #founding .orchid-left { left: 0; }
+    #founding .orchid-right { right: 0; }
+    #founding .founding-content {
+      position: relative;
+      z-index: 2;
+    }
+    #founding h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.4rem);
+      font-weight: 300;
+      color: #fff;
+      margin-bottom: 14px;
+      letter-spacing: 0.02em;
+    }
+    #founding .tagline {
+      font-size: 0.75rem;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: #fff;
+      margin-bottom: 55px;
+    }
+    .email-form {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .email-form input {
+      background: transparent;
+      border: none;
+      border-bottom: 1px solid rgba(255,255,255,0.7);
+      outline: none;
+      width: 300px;
+      padding: 10px 0;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-align: left;
+      margin-bottom: 0;
+    }
+    .email-form input::placeholder { color: rgba(255,255,255,0.7); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #f4c6cc;
+      border-top: 1px solid rgba(255,255,255,0.4);
+      padding: 70px 20px;
+      text-align: center;
+    }
+    footer .logo {
+      width: 65px;
+      margin: 0 auto 30px;
+      display: block;
+    }
+    footer .reservations {
+      font-size: 0.55rem;
+      letter-spacing: 0.45em;
+      color: #9a7a7a;
+      margin-bottom: 18px;
+    }
+    footer address {
+      font-style: normal;
+      font-size: 0.72rem;
+      font-weight: 300;
+      color: #7a5a5a;
+      line-height: 2.2;
+    }
+    footer address a {
+      color: #7a5a5a;
+      text-decoration: none;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .cards { gap: 40px; }
+      .card { text-align: center; }
+      #founding .orchid { width: 110px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section id="hero">
+    <video autoplay muted loop playsinline>
+      <source src="assets/hero-video.mp4" type="video/mp4"/>
+    </video>
+    <div class="overlay"></div>
+    <div class="hero-text">
+      <p class="welcome">W E L C O M E &nbsp; T O</p>
+      <h1>MAISON<br>HÉRITIÈRE</h1>
+      <p class="subtitle">A R C H I V A L &nbsp; H I G H &nbsp; J E W E L L E R Y</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="overlay"></div>
+    <div class="about-content">
+      <img class="logo" src="assets/logo.png" alt="Maison Héritière"/>
+      <p>Maison Héritière presents archival high jewellery — rare, curated treasures in gold and precious stones, selected from private collections for their timeless beauty and craftsmanship. Each piece is unique, designed for modern heirs and collectors.</p>
+    </div>
+  </section>
+
+  <!-- ARCHIVE -->
+  <section id="archive">
+    <h2>The First Archive</h2>
+    <div class="cards">
+      <div class="card">
+        <img src="assets/ring-kyoto.png" alt="The Kyoto Sapphire Ring"/>
+        <h3>The Kyoto Sapphire Ring</h3>
+        <p>3.2 ct Pink Sapphire, 2.1 ct Diamond Accents</p>
+      </div>
+      <div class="card">
+        <img src="assets/ring-paraiba.png" alt="Oval Paraiba Époque"/>
+        <h3>Oval Paraiba Époque</h3>
+        <p>6 ct Paraiba Tourmaline, 4.1 ct Diamond Accents</p>
+      </div>
+      <div class="card">
+        <img src="assets/ring-cascade.png" alt="The Sapphire Cascade"/>
+        <h3>The Sapphire Cascade</h3>
+        <p>7 ct Blue Sapphire, 1.2 ct Diamond Accents</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDING COLLECTOR -->
+  <section id="founding">
+    <img class="orchid orchid-left" src="assets/orchid-left.png" alt=""/>
+    <img class="orchid orchid-right" src="assets/orchid-right.png" alt=""/>
+    <div class="founding-content">
+      <h2>Become a Founding Collector.</h2>
+      <p class="tagline">For women who collect stories, not trends.</p>
+      <div class="email-form">
+        <input type="email" placeholder="Email"/>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <img class="logo" src="assets/logo.png" alt="Maison Héritière"/>
+    <p class="reservations">R E S E R V A T I O N S &nbsp; O F F I C E</p>
+    <address>
+      123 Anywhere St., Any City ST 1234<br/>
+      0123-456-7890<br/>
+      <a href="http://maisonheritiere.com">maisonheritiere.com</a>
+    </address>
+  </footer>
+
+</body>
+</html>
